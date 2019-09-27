@@ -13,3 +13,12 @@
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/plugins/start/buffexplorer"]
+	path = pack/plugins/start/buffexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule "pack/plugins/start/gutentags"]
+	path = pack/plugins/start/gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "pack/plugins/start/tagbar"]
+	path = pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar.git
