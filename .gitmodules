@@ -7,9 +7,9 @@
 [submodule "pack/plugins/start/ctrlp"]
 	path = pack/plugins/start/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "pack/plugins/start/surround"]
-	path = pack/plugins/start/surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "pack/plugins/start/solarized"]
-	path = pack/plugins/start/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "pack/plugins/start/delimitmate"]
+	path = pack/plugins/start/delimitmate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "pack/plugins/start/nerdtree"]
+	path = pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
