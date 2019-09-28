@@ -5,7 +5,7 @@ set incsearch
 
 filetype plugin indent on
 syntax enable
-colo molokai_dark
+colo molokai-dark
 
 let delimitMate_expand_cr = 1
 
