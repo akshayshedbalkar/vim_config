@@ -1,14 +1,17 @@
- Clone
+Note: Square brackets indicate optional arguments
+
+Clone
  	Project with existing submodules
 		git clone --recurse-submodules <url>
 
 	Add/clone repos as submodules 
-		git submodule add <url> <submodule_dir_path>
+		git submodule add [-b <branch_name>] <url> <submodule_dir_path>
 
 Pull
 	Pulling submodule changes
 		Option 1) in submodule: git pull
 		Option 2) in superproject: git submodule update --remote [--merge] [submodule name] 
+
 
 	Pulling superproject changes + all submodule changes
 		git pull --recurse-submodules
@@ -21,6 +24,16 @@ Push
 		git push --recurse-submodules=on-demand
 
 Delete a submodule
-	1. git submodule deinit -f -- <submodule_dir_path>
-	2. rm -rf .git/modules/<submodule_dir_path>
-	3. git rm -f <submodule_dir_path>
+	Step 1. git submodule deinit -f -- <submodule_dir_path>
+	Step 2. rm -rf .git/modules/<submodule_dir_path>
+	Step 3. git rm -f <submodule_dir_path>
+
+Make submodule track a branch
+	Make superproject record branch of submodule in .gitmodules
+		git config [-f .gitmodules] submodule.<submodule_dir_path>.branch <branch_name>
+
+	Create a branch in submodule and track remote
+		git checkout -b <branch_name> --track origin/<branch_name>
+
+	Make existing branch in submodule track remote
+		git branch -u origin/<branch_name> <branch_name>
