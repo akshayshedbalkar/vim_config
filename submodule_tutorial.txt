@@ -3,7 +3,7 @@
 		git clone --recurse-submodules <url>
 
 	Add/clone repos as submodules 
-		git submodule add <url> <path>
+		git submodule add <url> <submodule_dir_path>
 
 Pull
 	Pulling submodule changes
@@ -19,4 +19,8 @@ Push
 
 	Pushing superproject with all submodules
 		git push --recurse-submodules=on-demand
-	
+
+Delete a submodule
+	1. git submodule deinit -f -- <submodule_dir_path>
+	2. rm -rf .git/modules/<submodule_dir_path>
+	3. git rm -f <submodule_dir_path>
