@@ -1,0 +1,22 @@
+ Clone
+ 	Project with existing submodules
+		git clone --recurse-submodules <url>
+
+	Add/clone repos as submodules 
+		git submodule add <url> <path>
+
+Pull
+	Pulling submodule changes
+		Option 1) in submodule: git pull
+		Option 2) in superproject: git submodule update --remote [--merge] [submodule name] 
+
+	Pulling superproject changes + all submodule changes
+		git pull --recurse-submodules
+
+Push
+	Pushing submodule changes
+		In submodule: git push
+
+	Pushing superproject with all submodules
+		git push --recurse-submodules=on-demand
+	

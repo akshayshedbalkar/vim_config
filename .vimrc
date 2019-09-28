@@ -8,6 +8,8 @@ syntax enable
 colo molokai-dark
 
 let delimitMate_expand_cr = 1
+"let g:airline_extensions = []
+let g:airline#extensions#whitespace#enabled = 0
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

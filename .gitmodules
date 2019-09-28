@@ -31,3 +31,6 @@
 [submodule "pack/plugins/start/molokai_dark"]
 	path = pack/plugins/start/molokai_dark
 	url = https://github.com/pR0Ps/molokai-dark.git
+[submodule "pack/plugins/start/surround"]
+	path = pack/plugins/start/surround
+	url = https://github.com/tpope/vim-surround.git
