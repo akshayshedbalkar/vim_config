@@ -28,3 +28,6 @@
 [submodule "pack/plugins/start/tabular"]
 	path = pack/plugins/start/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "pack/plugins/start/molokai_dark"]
+	path = pack/plugins/start/molokai_dark
+	url = https://github.com/pR0Ps/molokai-dark.git
