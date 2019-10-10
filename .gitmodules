@@ -49,3 +49,6 @@
 [submodule "pack/plugins/start/doxygen"]
 	path = pack/plugins/start/doxygen
 	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
+[submodule "pack/plugins/start/holokai"]
+	path = pack/plugins/start/holokai
+	url = https://github.com/changyuheng/color-scheme-holokai-for-vim.git
