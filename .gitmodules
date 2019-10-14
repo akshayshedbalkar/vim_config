@@ -52,3 +52,6 @@
 [submodule "pack/plugins/start/holokai"]
 	path = pack/plugins/start/holokai
 	url = https://github.com/changyuheng/color-scheme-holokai-for-vim.git
+[submodule "pack/plugins/start/syntastic"]
+	path = pack/plugins/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
