@@ -55,3 +55,12 @@
 [submodule "pack/plugins/start/syntastic"]
 	path = pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "pack/plugins/start/vis"]
+	path = pack/plugins/start/vis
+	url = https://github.com/vim-scripts/vis.git
+[submodule "pack/plugins/start/visincr"]
+	path = pack/plugins/start/visincr
+	url = https://github.com/vim-scripts/VisIncr.git
+[submodule "pack/plugins/start/vim-ps1"]
+	path = pack/plugins/start/vim-ps1
+	url = https://github.com/PProvost/vim-ps1.git
