@@ -55,3 +55,9 @@
 [submodule "pack/plugins/start/airline"]
 	path = pack/plugins/start/airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule "pack/plugins/start/lucius"]
+	path = pack/plugins/start/lucius
+	url = https://github.com/jonathanfilip/vim-lucius.git
+[submodule "pack/plugins/start/doxygen_toolkit"]
+	path = pack/plugins/start/doxygen_toolkit
+	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
