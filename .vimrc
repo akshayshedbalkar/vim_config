@@ -2,7 +2,7 @@
 filetype plugin indent on
 syntax enable
 colo holokai
-let mapleader = " "
+let mapleader=" "
 set nu
 set hlsearch
 set incsearch
@@ -14,6 +14,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set nowrap
+set noshowmode
+set diffopt+=vertical
+set wildmenu
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -23,7 +26,9 @@ nnoremap <Leader>n :noh<CR>
 nnoremap <Leader>r "0p
 noremap <Leader>f $%
 nnoremap <Leader>x :%!xxd<CR>
-nnoremap <Leader>l :e **/*
+nnoremap <Leader>xr :%!xxd -r<CR>
+nnoremap <Leader>2 :diffget //2<CR> :diffupdate<CR>
+nnoremap <Leader>3 :diffget //3<CR> :diffupdate<CR>
 inoremap <C-l> <C-o>a
 
 "PLUGIN SETTINGS
