@@ -61,3 +61,6 @@
 [submodule "pack/plugins/start/doxygen_toolkit"]
 	path = pack/plugins/start/doxygen_toolkit
 	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
+[submodule "pack/plugins/start/tabline"]
+	path = pack/plugins/start/tabline
+	url = https://github.com/mkitt/tabline.vim.git
