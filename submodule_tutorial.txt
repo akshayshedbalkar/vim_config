@@ -10,11 +10,7 @@ Clone
 Pull
 	Pulling submodule changes
 		Option 1) in submodule: git pull
-		Option 2) in superproject: git submodule update --remote [--merge] [submodule name] 
-
-
-	Pulling superproject changes + all submodule changes
-		git pull --recurse-submodules
+		Option 2) in superproject: git submodule update --recursive --remote [--merge] [submodule name] 
 
 Push
 	Pushing submodule changes
