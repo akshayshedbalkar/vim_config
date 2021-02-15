@@ -13,9 +13,6 @@
 [submodule "pack/plugins/start/gutentags"]
 	path = pack/plugins/start/gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
-[submodule "pack/plugins/start/tagbar"]
-	path = pack/plugins/start/tagbar
-	url = https://github.com/majutsushi/tagbar.git
 [submodule "pack/plugins/start/tabular"]
 	path = pack/plugins/start/tabular
 	url = https://github.com/godlygeek/tabular.git
