@@ -1,4 +1,6 @@
-Note: Square brackets indicate optional arguments
+Notes: 
+- Square brackets indicate optional arguments
+- --resursive option is for nested submodules
 
 Clone
  	Project with existing submodules
@@ -6,11 +8,12 @@ Clone
 
 	Add/clone repos as submodules 
 		git submodule add [-b <branch_name>] <url> <submodule_dir_path>
+        git submodule update --init --recursive
 
 Pull
 	Pulling submodule changes
 		Option 1) in submodule: git pull
-		Option 2) in superproject: git submodule update --recursive --remote [--merge] [submodule name] 
+		Option 2) in superproject: git submodule update --remote --recursive [--merge] [submodule name] 
 
 Push
 	Pushing submodule changes

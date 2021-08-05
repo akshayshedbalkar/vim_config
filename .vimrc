@@ -17,6 +17,8 @@ set nowrap
 set noshowmode
 set diffopt+=vertical
 set wildmenu
+set visualbell
+set t_vb=
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -30,20 +32,27 @@ nnoremap <Leader>xr :%!xxd -r<CR>
 nnoremap <Leader>2 :diffget //2<CR> :diffupdate<CR>
 nnoremap <Leader>3 :diffget //3<CR> :diffupdate<CR>
 inoremap <C-l> <C-o>a
+set efm+=ctc\ %t%n:\ [\"%f\"\ %l\/%c]%m
 
 "PLUGIN SETTINGS
 nnoremap <F8> :NERDTreeToggle<CR>
-nnoremap <F9> :TagbarToggle<CR>
+nnoremap <F9> :NERDTreeFind<CR>
+" nnoremap <F9> :TagbarToggle<CR>
 noremap <Leader>t :Tabularize /
 nnoremap <Leader>p :CtrlPTag<CR>
+noremap <F12> :%!clang-format -style="{BasedOnStyle: microsoft, ColumnLimit: 150, ReflowComments: true}"<CR>
 let delimitMate_expand_cr = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:ctrlp_clear_cache_on_exit =0
 let g:ctrlp_by_filename =1
 let g:tagbar_autofocus = 1
+let g:DoxygenToolkit_authorName="Akshay Shedbalkar"
+let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$']
+" let g:gutentags_dont_load = 1
+let g:snipMate = { 'snippet_version' : 1 }
 
 "PROJECT SETTINGS
-nnoremap <Leader>s :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <cword> .<CR>
-command! -nargs=1 Search :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <args> .
+nnoremap <Leader>s :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <cword> .<CR>
+command! -nargs=1 Search :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <args> .
 command! -nargs=+ Refactor :cfdo %s/<args>/g|update
-let &makeprg='(cd ./build && make)'
+let &makeprg='(cd ./$* && make)'
