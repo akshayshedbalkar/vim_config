@@ -6,7 +6,6 @@ let mapleader=" "
 set nu
 set hlsearch
 set incsearch
-set tags=./tags,tags;$HOME
 set backspace=2
 set hidden
 set autoread
@@ -31,25 +30,36 @@ nnoremap <Leader>x :%!xxd<CR>
 nnoremap <Leader>xr :%!xxd -r<CR>
 nnoremap <Leader>2 :diffget //2<CR> :diffupdate<CR>
 nnoremap <Leader>3 :diffget //3<CR> :diffupdate<CR>
+noremap <F12> :%!clang-format -style="{BasedOnStyle: microsoft, ColumnLimit: 150, ReflowComments: true}"<CR>
 inoremap <C-l> <C-o>a
 set efm+=ctc\ %t%n:\ [\"%f\"\ %l\/%c]%m
 
 "PLUGIN SETTINGS
 nnoremap <F8> :NERDTreeToggle<CR>
 nnoremap <F9> :NERDTreeFind<CR>
-" nnoremap <F9> :TagbarToggle<CR>
 noremap <Leader>t :Tabularize /
-nnoremap <Leader>p :CtrlPTag<CR>
-noremap <F12> :%!clang-format -style="{BasedOnStyle: microsoft, ColumnLimit: 150, ReflowComments: true}"<CR>
+nnoremap <Leader>p :Ag<CR>
+nnoremap <C-p> :Files<CR>
 let delimitMate_expand_cr = 1
 let g:airline#extensions#whitespace#enabled = 0
-let g:ctrlp_clear_cache_on_exit =0
-let g:ctrlp_by_filename =1
-let g:tagbar_autofocus = 1
 let g:DoxygenToolkit_authorName="Akshay Shedbalkar"
-let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$']
-" let g:gutentags_dont_load = 1
+let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$', 'compile_commands.json']
 let g:snipMate = { 'snippet_version' : 1 }
+let g:termdebug_wide = 16
+let g:lsc_server_commands = {
+    \ 'cpp': {
+        \ 'command': 'clangd --background-index',
+        \ 'suppress_stderr': v:true
+    \},
+    \ 'c': {
+        \ 'command': 'clangd --background-index',
+        \ 'suppress_stderr': v:true
+    \},
+    \ 'python': 'pyls',
+\}
+let g:lsc_auto_map = {'defaults': v:true, 'GoToDefinition': 'gd', 'PreviousReference': ''}
+autocmd CompleteDone * silent! pclose
+let g:fzf_layout = { 'down': '~40%' }
 
 "PROJECT SETTINGS
 nnoremap <Leader>s :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <cword> .<CR>
