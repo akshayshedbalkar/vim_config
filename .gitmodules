@@ -7,9 +7,6 @@
 [submodule "pack/plugins/start/delimitmate"]
 	path = pack/plugins/start/delimitmate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule "pack/plugins/start/buffexplorer"]
-	path = pack/plugins/start/buffexplorer
-	url = https://github.com/jlanzarotta/bufexplorer.git
 [submodule "pack/plugins/start/tabular"]
 	path = pack/plugins/start/tabular
 	url = https://github.com/godlygeek/tabular.git
