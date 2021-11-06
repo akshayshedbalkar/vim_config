@@ -13,15 +13,6 @@
 [submodule "pack/plugins/start/surround"]
 	path = pack/plugins/start/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "pack/plugins/start/tlib"]
-	path = pack/plugins/start/tlib
-	url = https://github.com/tomtom/tlib_vim.git
-[submodule "pack/plugins/start/utils"]
-	path = pack/plugins/start/utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "pack/plugins/start/snipmate"]
-	path = pack/plugins/start/snipmate
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule "pack/plugins/start/snippets"]
 	path = pack/plugins/start/snippets
 	url = https://github.com/honza/vim-snippets.git
@@ -58,3 +49,6 @@
 [submodule "pack/plugins/start/fzf-checkout"]
 	path = pack/plugins/start/fzf-checkout
 	url = https://github.com/stsewd/fzf-checkout.vim.git
+[submodule "pack/plugins/start/ultisnips"]
+	path = pack/plugins/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
