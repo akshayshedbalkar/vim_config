@@ -24,10 +24,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <Leader>c :%s///ng <CR> 
 nnoremap <Leader>n :noh<CR>
-nnoremap <Leader>r "0p
-noremap <Leader>f $%
 nnoremap <Leader>x :%!xxd<CR>
-nnoremap <Leader>xr :%!xxd -r<CR>
 nnoremap <Leader>2 :diffget //2<CR> :diffupdate<CR>
 nnoremap <Leader>3 :diffget //3<CR> :diffupdate<CR>
 noremap <F12> :%!clang-format -style="{BasedOnStyle: microsoft, ColumnLimit: 150, ReflowComments: true}"<CR>
@@ -40,6 +37,8 @@ nnoremap <F9> :NERDTreeFind<CR>
 noremap <Leader>t :Tabularize /
 nnoremap <Leader>p :Ag<CR>
 nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <C-b> :GBranches<CR>
 let delimitMate_expand_cr = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:DoxygenToolkit_authorName="Akshay Shedbalkar"

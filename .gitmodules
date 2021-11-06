@@ -55,3 +55,6 @@
 [submodule "pack/plugins/start/fzf"]
 	path = pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/plugins/start/fzf-checkout"]
+	path = pack/plugins/start/fzf-checkout
+	url = https://github.com/stsewd/fzf-checkout.vim.git
