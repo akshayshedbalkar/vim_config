@@ -27,9 +27,11 @@ nnoremap <Leader>n :noh<CR>
 nnoremap <Leader>x :%!xxd<CR>
 nnoremap <Leader>2 :diffget //2<CR> :diffupdate<CR>
 nnoremap <Leader>3 :diffget //3<CR> :diffupdate<CR>
+nnoremap <Leader>d A  /*!<  */<ESC>hhi
 noremap <F12> :%!clang-format -style="{BasedOnStyle: microsoft, ColumnLimit: 150, ReflowComments: true}"<CR>
 inoremap <C-l> <C-o>a
 set efm+=ctc\ %t%n:\ [\"%f\"\ %l\/%c]%m
+set directory=$HOME/.vim/swapfiles
 
 "PLUGIN SETTINGS
 nnoremap <F8> :NERDTreeToggle<CR>
@@ -42,9 +44,8 @@ nnoremap <C-b> :GBranches<CR>
 let delimitMate_expand_cr = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:DoxygenToolkit_authorName="Akshay Shedbalkar"
-let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$', 'compile_commands.json']
-let g:snipMate = { 'snippet_version' : 1 }
-let g:termdebug_wide = 16
+let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$', '^tags', 'compile_commands.json']
+let g:termdebug_wide = 1
 let g:lsc_server_commands = {
     \ 'cpp': {
         \ 'command': 'clangd --background-index',
@@ -57,6 +58,7 @@ let g:lsc_server_commands = {
     \ 'python': 'pyls',
 \}
 let g:lsc_auto_map = {'defaults': v:true, 'GoToDefinition': 'gd', 'PreviousReference': ''}
+set completeopt-=preview
 autocmd CompleteDone * silent! pclose
 let g:fzf_layout = { 'down': '~40%' }
 
