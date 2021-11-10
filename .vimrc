@@ -3,6 +3,7 @@ filetype plugin indent on
 syntax enable
 colo holokai
 let mapleader=" "
+let &makeprg='(cd ./$* && make)'
 set nu
 set hlsearch
 set incsearch
@@ -18,6 +19,7 @@ set diffopt+=vertical
 set wildmenu
 set visualbell
 set t_vb=
+set completeopt-=preview
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -58,12 +60,9 @@ let g:lsc_server_commands = {
     \ 'python': 'pyls',
 \}
 let g:lsc_auto_map = {'defaults': v:true, 'GoToDefinition': 'gd', 'PreviousReference': ''}
-set completeopt-=preview
-autocmd CompleteDone * silent! pclose
 let g:fzf_layout = { 'down': '~40%' }
 
 "PROJECT SETTINGS
 nnoremap <Leader>s :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <cword> .<CR>
 command! -nargs=1 Search :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <args> .
 command! -nargs=+ Refactor :cfdo %s/<args>/g|update
-let &makeprg='(cd ./$* && make)'
