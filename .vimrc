@@ -20,6 +20,8 @@ set wildmenu
 set visualbell
 set t_vb=
 set completeopt-=preview
+nmap gd <C-]>
+nmap gb <C-t>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -59,7 +61,7 @@ let g:lsc_server_commands = {
     \},
     \ 'python': 'pyls',
 \}
-let g:lsc_auto_map = {'defaults': v:true, 'GoToDefinition': 'gd', 'PreviousReference': ''}
+let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': ''}
 let g:fzf_layout = { 'down': '~40%' }
 
 "PROJECT SETTINGS
