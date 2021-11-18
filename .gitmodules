@@ -52,6 +52,3 @@
 [submodule "pack/plugins/start/ultisnips"]
 	path = pack/plugins/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "pack/plugins/start/atm"]
-	path = pack/plugins/start/atm
-	url = https://github.com/akshayshedbalkar/atm.vim.git
