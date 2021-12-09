@@ -1,27 +1,34 @@
+"AUTO COMMANDS
+autocmd ColorScheme holokai hi Function ctermfg=208
+autocmd ColorScheme * hi Normal ctermbg=none
+autocmd FileType python setlocal equalprg=yapf
+autocmd FileType python setlocal makeprg=python\ %
+autocmd FileType c,cpp setlocal equalprg=clang-format\ -style=\"{BasedOnStyle:\ microsoft,\ ColumnLimit:\ 150,\ ReflowComments:\ true}\"
+autocmd FileType c,cpp,unix setlocal makeprg=make\ -s\ -C\ $*
+
 "VIM SETTINGS
+colo holokai
 filetype plugin indent on
 syntax enable
-colo holokai
 let mapleader=" "
-let &makeprg='(cd ./$* && make)'
 set nu
-set hlsearch
-set incsearch
-set backspace=2
-set hidden
-set autoread
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set nowrap
 set noshowmode
 set diffopt+=vertical
+set completeopt-=preview
+set efm+=ctc\ %t%n:\ [\"%f\"\ %l\/%c]%m
+set hlsearch
+set incsearch
+set backspace=2
+set hidden
+set autoread
 set wildmenu
 set visualbell
 set t_vb=
-set completeopt-=preview
 nmap gd <C-]>
-nmap gb <C-t>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -32,9 +39,7 @@ nnoremap <Leader>x :%!xxd<CR>
 nnoremap <Leader>2 :diffget //2<CR> :diffupdate<CR>
 nnoremap <Leader>3 :diffget //3<CR> :diffupdate<CR>
 nnoremap <Leader>d A  /*!<  */<ESC>hhi
-noremap <F12> :%!clang-format -style="{BasedOnStyle: microsoft, ColumnLimit: 150, ReflowComments: true}"<CR>
 inoremap <C-l> <C-o>a
-set efm+=ctc\ %t%n:\ [\"%f\"\ %l\/%c]%m
 set directory=$HOME/.vim/swapfiles
 
 "PLUGIN SETTINGS
@@ -45,11 +50,13 @@ nnoremap <Leader>p :Ag<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <C-b> :GBranches<CR>
+let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$', '^tags', 'compile_commands.json']
 let delimitMate_expand_cr = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:DoxygenToolkit_authorName="Akshay Shedbalkar"
-let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$', '^tags', 'compile_commands.json']
 let g:termdebug_wide = 1
+let g:fzf_layout = { 'down': '~40%' }
+let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': ''}
 let g:lsc_server_commands = {
     \ 'cpp': {
         \ 'command': 'clangd --background-index',
@@ -59,12 +66,17 @@ let g:lsc_server_commands = {
         \ 'command': 'clangd --background-index',
         \ 'suppress_stderr': v:true
     \},
-    \ 'python': 'pyls',
+    \ 'python': {
+        \ 'command': 'pyls',
+        \ 'suppress_stderr': v:true
+    \},
+    \ 'rust': {
+        \ 'command': 'rust-analyzer',
+        \ 'suppress_stderr': v:true
+    \}
 \}
-let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': ''}
-let g:fzf_layout = { 'down': '~40%' }
 
 "PROJECT SETTINGS
 nnoremap <Leader>s :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <cword> .<CR>
-command! -nargs=1 Search :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <args> .
-command! -nargs=+ Refactor :cfdo %s/<args>/g|update
+command -nargs=1 Search :grep -r --exclude-dir={cmake-build-debug,build,config,.git,tasking_build,delivery_build,tools,doc,cmocka,test,scripts,.vscode} --exclude={tags,*.swp,*.sqlite,*.obj,*.a,*.html,*.exe,*.rdump} <args> .
+command -nargs=+ Refactor :cfdo %s/<args>/g|update
