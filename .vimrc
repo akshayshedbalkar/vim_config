@@ -3,8 +3,9 @@ autocmd ColorScheme holokai hi Function ctermfg=208
 autocmd ColorScheme * hi Normal ctermbg=none
 autocmd FileType python setlocal equalprg=yapf
 autocmd FileType python setlocal makeprg=python\ %
-autocmd FileType c,cpp setlocal equalprg=clang-format\ -style=\"{BasedOnStyle:\ microsoft,\ ColumnLimit:\ 150,\ ReflowComments:\ true}\"
-autocmd FileType c,cpp,unix setlocal makeprg=make\ -s\ -C\ $*
+" autocmd FileType c,cpp setlocal equalprg=clang-format\ -style=\"{BasedOnStyle:\ microsoft,\ ColumnLimit:\ 150,\ SortIncludes:\ false,\ CommentPragmas:\ '^\ polyspace',\ ReflowComments:\ true,\ AlignTrailingComments:\ true}\"
+autocmd FileType c,cpp setlocal equalprg=clang-format\ -style=\"{BasedOnStyle:\ chromium,\ BreakBeforeBraces:\ Allman,\ SortIncludes:\ false,\ CommentPragmas:\ '^\ polyspace',\ ReflowComments:\ true,\ AlignTrailingComments:\ true}\"
+autocmd FileType c,cpp setlocal makeprg=make\ -s\ -C\ $*
 
 "VIM SETTINGS
 colo holokai
@@ -46,10 +47,11 @@ set directory=$HOME/.vim/swapfiles
 nnoremap <F8> :NERDTreeToggle<CR>
 nnoremap <F9> :NERDTreeFind<CR>
 noremap <Leader>t :Tabularize /
-nnoremap <Leader>p :Ag<CR>
+nnoremap <Leader>p :Rg<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <C-b> :GBranches<CR>
+command -nargs=1 Gdy :Git difftool -y <args>
 let NERDTreeIgnore = ['^RP_SRC*','^Review','^doc','^test', 'build$', '^tags', 'compile_commands.json']
 let delimitMate_expand_cr = 1
 let g:airline#extensions#whitespace#enabled = 0
@@ -67,7 +69,7 @@ let g:lsc_server_commands = {
         \ 'suppress_stderr': v:true
     \},
     \ 'python': {
-        \ 'command': 'pyls',
+        \ 'command': 'pylsp',
         \ 'suppress_stderr': v:true
     \},
     \ 'rust': {
