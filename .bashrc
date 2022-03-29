@@ -55,7 +55,14 @@ ff() {
 ## Git
 co() {
     branch_list=$(git branch|grep $1)
-    git switch $branch_list||echo "$branch_list"
+    git switch $branch_list
+    if [ $? -ne 0 ]
+    then
+        echo "$branch_list" |awk '{print NR  ":" $s}' 
+        read -p "Enter selection 1-n: " choice
+        selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
+        git switch $selection
+    fi
 }
 
 gpu() {
