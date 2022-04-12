@@ -8,7 +8,7 @@ PS1='\n[\e[1;32m\u@\h\e[m \e[1;34m\W\e[m]\e[1;31m $(__git_ps1)\e[m \$ '
 
 ### Environment variables
 ## Common
-export PATH=$PATH:/home/ashed/.local/share/gem/ruby/3.0.0/bin:/home/ashed/tools/scripts/bash
+export PATH=$PATH:/home/ashed/.local/share/gem/ruby/3.0.0/bin:/home/ashed/tools/scripts/bash:/home/ashed/.local/bin
 export XDG_RUNTIME_DIR='/tmp/runtime-ashed'
 export FZF_DEFAULT_COMMAND="rg --files -i"
 export EDITOR="nvim"
@@ -55,7 +55,16 @@ ff() {
 ## Git
 co() {
     branch_list=$(git branch|grep $1)
+
+    n=$(echo $branch_list|wc -l)
+    if [ $n -eq 1 ]
+    then
+        echo "Already on desired branch"
+        return 0
+    fi
+
     git switch $branch_list
+
     if [ $? -ne 0 ]
     then
         echo "$branch_list" |awk '{print NR  ":" $0}' 
@@ -75,8 +84,8 @@ delete_branch() {
 }
 
 checkout_all_branches() {
-    git branch -r|sed "s_origin/__" >_remotes
-    git branch -l>_local
+    git branch -r | sed "s_origin/__" > _remotes
+    git branch -l > _local
     grep -Fxvf _local _remotes | while read name; do git checkout $name; done
     rm _local
     rm _remotes
