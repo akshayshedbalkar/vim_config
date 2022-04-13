@@ -54,19 +54,19 @@ ff() {
 
 ## Git
 co() {
-    branch_list=$(git branch|grep $1)
-
-    n=$(echo $branch_list|wc -l)
-    if [ $n -eq 1 ]
-    then
-        echo "Already on desired branch"
-        return 0
-    fi
+    branch_list=$(git branch | grep $1)
 
     git switch $branch_list
 
     if [ $? -ne 0 ]
     then
+        n=$(echo git branch | grep $1 |wc -l)
+        if [ $n -eq 1 ]
+        then
+            echo "Already on desired branch"
+            return 0
+        fi
+
         echo "$branch_list" |awk '{print NR  ":" $0}' 
         read -p "Enter selection 1-n: " choice
         selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
