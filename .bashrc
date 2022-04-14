@@ -60,7 +60,7 @@ co() {
 
     if [ $? -ne 0 ]
     then
-        n=$(echo git branch | grep $1 |wc -l)
+        n=$(git branch | grep $1 |wc -l)
         if [ $n -eq 1 ]
         then
             echo "Already on desired branch"
