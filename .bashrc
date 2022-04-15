@@ -8,7 +8,7 @@ PS1='\n[\e[1;32m\u@\h\e[m \e[1;34m\W\e[m]\e[1;31m $(__git_ps1)\e[m \$ '
 
 ### Environment variables
 ## Common
-export PATH=$PATH:/home/ashed/.local/share/gem/ruby/3.0.0/bin:/home/ashed/tools/scripts/bash:/home/ashed/.local/bin
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/tools/scripts/bash:$HOME/.local/bin
 export XDG_RUNTIME_DIR='/tmp/runtime-ashed'
 export FZF_DEFAULT_COMMAND="rg --files -i"
 export EDITOR="nvim"
