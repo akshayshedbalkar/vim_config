@@ -26,7 +26,8 @@ alias ls='ls --color=auto'
 alias l='ls -lhFB --color=none --group-directories-first'
 alias ll='ls -alhFB --color=none --group-directories-first'
 alias ..='cd ..'
-alias log="git log --all --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
+alias log="git log --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
+alias logg="git logg --all --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
 alias tag="git tag --sort=creatordate| grep -v build"
 alias vi='nvim'
 alias vimdiff='nvim -d'
@@ -55,7 +56,7 @@ ff() {
 co() {
     branch_list=$(git branch | grep $1)
 
-    git switch $branch_list
+    git switch $branch_list 2>/dev/null
 
     if [ $? -ne 0 ]
     then
@@ -64,12 +65,16 @@ co() {
         then
             echo "Already on desired branch"
             return 0
+        elif [ $n -eq 0 ]
+        then
+            echo "No branch found"
+            return 0
+        else
+            echo "$branch_list" |awk '{print NR  ":" $0}' 
+            read -p "Enter selection 1-n: " choice
+            selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
+            git switch $selection
         fi
-
-        echo "$branch_list" |awk '{print NR  ":" $0}' 
-        read -p "Enter selection 1-n: " choice
-        selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
-        git switch $selection
     fi
 }
 
