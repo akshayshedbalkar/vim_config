@@ -28,11 +28,11 @@ alias ll='ls -alhFB --color=none --group-directories-first'
 alias ..='cd ..'
 alias log="git log --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
 alias logg="git logg --all --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
-alias tag="git tag --sort=creatordate| grep -v build"
+alias tag="git tag --sort=creatordate|grep -v build"
 alias vi='nvim'
 alias vimdiff='nvim -d'
 alias v='nvim ~/.config/nvim/init.vim'
-alias b='nvim ~/.bashrc'
+alias b='nvim ~/.vim/.bashrc'
 #Project specific
 alias fpm2='cd ~/docs/fpm2_development'
 alias int='cd ~/docs/Integration'
@@ -52,31 +52,31 @@ ff() {
     find . -type f -name "$1" 
 }
 
-## Git
-co() {
-    branch_list=$(git branch | grep $1)
+# Git
+ co() {
+     branch_list=$(git branch | grep $1)
 
-    git switch $branch_list 2>/dev/null
+     git switch $branch_list 2>/dev/null
 
-    if [ $? -ne 0 ]
-    then
-        n=$(git branch | grep $1 |wc -l)
-        if [ $n -eq 1 ]
-        then
-            echo "Already on desired branch"
-            return 0
-        elif [ $n -eq 0 ]
-        then
-            echo "No branch found"
-            return 0
-        else
-            echo "$branch_list" |awk '{print NR  ":" $0}' 
-            read -p "Enter selection 1-n: " choice
-            selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
-            git switch $selection
-        fi
-    fi
-}
+     if [ $? -ne 0 ]
+     then
+         n=$(git branch | grep $1 |wc -l)
+         if [ $n -eq 1 ]
+         then
+             echo "Already on desired branch"
+             return 0
+         elif [ $n -eq 0 ]
+         then
+             echo "No branch found"
+             return 0
+         else
+             echo "$branch_list" |awk '{print NR  ":" $0}' 
+             read -p "Enter selection 1-n: " choice
+             selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
+             git switch $selection
+         fi
+     fi
+ }
 
 gpu() {
     git branch --show-current|xargs git push -u origin 
