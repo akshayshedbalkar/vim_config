@@ -54,8 +54,16 @@ ff() {
 
 # Git
  co() {
-     branch_list=$(git branch | grep $1)
+     CLEAN=1
+     git diff --exit-code --quiet || CLEAN=0
+     git diff --cached --exit-code --quiet || CLEAN=0
+     if [ $CLEAN -ne 1 ]
+     then
+         echo "Working directory is not clean. See 'git status'. Clean working directory and try again."
+         return 0
+     fi
 
+     branch_list=$(git branch | grep $1)
      git switch $branch_list 2>/dev/null
 
      if [ $? -ne 0 ]
