@@ -1,31 +1,55 @@
 #!/bin/bash
 
-if [  ! -f setup.sh ]
-then
+##############################################################################################
+if [  ! -f setup.sh ] then
     echo "Error: Please execute this script from vim_config directory. Exiting ..."
     exit 0
 fi
 
-echo "Step 1: Initializing ..."
+##############################################################################################
+echo -e "\nStep 1/6: Initializing ..."
 git submodule init
 
-echo "Step 2: Updating ..."
+##############################################################################################
+echo -e "\nStep 2/6: Updating ..."
 git submodule update --remote --recursive
 
-echo "Step 3: Creating swapfiles directory ..."
-mkdir swapfiles
+##############################################################################################
+echo -e "\nStep 3/6: Creating swapfiles directory ..."
+if [ ! -d swapfiles ] then
+    mkdir swapfiles
+fi
 
-echo "Step 4: Backing up user .vim, vimrc and bashrc to folder .vim_config_backup ..."
-mkdir ~/.vim_config_backup
-mv ~/.vimrc ~/.vim_config_backup/.vimrc
-mv ~/.bashrc ~/.vim_config_backup/.bashrc
+##############################################################################################
+echo -e "\nStep 4/6: Backing up user .vim, vimrc and bashrc to folder .vim_config_backup ..."
+if [ ! -d "$HOME/.vim_config_backup" ] then
+    mkdir "$HOME/.vim_config_backup"
+fi
 
-cd ..
-mv .vim ~/.vim_config_backup/.vim
-mv vim_config .vim
-cd .vim
+if [ ! -L "$HOME/.vimrc" ] then
+    mv "$HOME/.vimrc" "$HOME/.vim_config_backup/.vimrc"
+else
+    rm "$HOME/.vimrc"
+fi
 
-echo "Step 6: Updating .vimrc and .bashrc ..."
-ln -s .vimrc ~/.vimrc
-ln -s .bashrc ~/.bashrc
+if [ ! -L "$HOME/.bashrc" ] then
+    mv "$HOME/.bashrc" "$HOME/.vim_config_backup/.bashrc"
+else
+    rm "$HOME/.bashrc"
+fi
 
+if [ -d "$HOME/.vim" ] then
+    mv "$HOME/.vim" "$HOME/.vim_config_backup/.vim"
+fi
+
+##############################################################################################
+echo -e "\nStep 5/6: Setting up new $HOME/.vim directory ..."
+cp -r "$PWD" "$HOME/.vim"
+
+##############################################################################################
+echo -e "\nStep 6/6: Updating user .vimrc and .bashrc ..."
+ln -s "$PWD/.vimrc" "$HOME/.vimrc"
+ln -s "$PWD/.bashrc" "$HOME/.bashrc"
+
+##############################################################################################
+echo -e "Done! You can safely delete the vim_config folder."
