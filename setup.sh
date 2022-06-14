@@ -52,4 +52,4 @@ ln -s "$PWD/.vimrc" "$HOME/.vimrc"
 ln -s "$PWD/.bashrc" "$HOME/.bashrc"
 
 ##############################################################################################
-echo -e "Done! You can safely delete the vim_config folder."
+echo -e "\nDone! You can safely delete the vim_config folder."
