@@ -48,8 +48,8 @@ cp -r "$PWD" "$HOME/.vim"
 
 ##############################################################################################
 echo -e "\nStep 6/6: Updating user .vimrc and .bashrc ..."
-ln -s "$PWD/.vimrc" "$HOME/.vimrc"
-ln -s "$PWD/.bashrc" "$HOME/.bashrc"
+ln -s "$HOME/.vim/.vimrc" "$HOME/.vimrc"
+ln -s "$HOME/.vim/.bashrc" "$HOME/.bashrc"
 
 ##############################################################################################
 echo -e "\nDone! You can safely delete the vim_config folder."
