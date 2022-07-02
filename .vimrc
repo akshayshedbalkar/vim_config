@@ -35,8 +35,6 @@ autocmd FileType c,cpp setlocal makeprg=make\ -s\ -C\ $*
 
 #VIM SETTINGS
 colo onedark
-filetype plugin indent on
-syntax enable
 var mapleader = " "
 set nu
 set tabstop=4
