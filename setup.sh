@@ -53,3 +53,4 @@ ln -s "$HOME/.vim/.bashrc" "$HOME/.bashrc"
 
 ##############################################################################################
 echo -e "\nDone! You can safely delete the vim_config folder."
+echo -e "\nExecute :PlugInstall on first use to install all plugins."
