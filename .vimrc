@@ -1,4 +1,31 @@
 vim9script
+
+#PLUGIN MANAGEMENT
+plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround' 
+Plug 'Raimondi/delimitMate'
+Plug 'godlygeek/tabular'
+Plug 'vim-scripts/vis'
+Plug 'vim-scripts/VisIncr'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'vim-airline/vim-airline'
+Plug 'mkitt/tabline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'natebosch/vim-lsc'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'kassio/neoterm'
+Plug 'akshayshedbalkar/atm.vim'
+Plug 'changyuheng/color-scheme-holokai-for-vim'
+Plug 'joshdick/onedark.vim'
+Plug 'PProvost/vim-ps1'
+plug#end()
+
 #AUTO COMMANDS
 autocmd ColorScheme holokai hi Function ctermfg=208
 autocmd ColorScheme * hi Normal ctermbg=none
@@ -7,7 +34,7 @@ autocmd FileType python setlocal makeprg=python\ %
 autocmd FileType c,cpp setlocal makeprg=make\ -s\ -C\ $*
 
 #VIM SETTINGS
-colo holokai
+colo onedark
 filetype plugin indent on
 syntax enable
 var mapleader = " "
