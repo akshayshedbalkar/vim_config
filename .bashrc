@@ -96,6 +96,11 @@ delete_branch() {
     git push origin --delete $1
 }
 
+delete_tag() {
+    git tag -d $1
+    git push origin --delete $1
+}
+
 checkout_all_branches() {
     git branch -r | sed "s_origin/__" > _remotes
     git branch -l > _local
