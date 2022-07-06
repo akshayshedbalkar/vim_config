@@ -54,38 +54,38 @@ ff() {
 }
 
 # Git
- co() {
-     CLEAN=1
-     git diff --exit-code --quiet || CLEAN=0
-     git diff --cached --exit-code --quiet || CLEAN=0
-     if [ $CLEAN -ne 1 ]
-     then
-         echo "Working directory is not clean. See 'git status'. Clean working directory and try again."
-         return 0
-     fi
+co() {
+    CLEAN=1
+    git diff --exit-code --quiet || CLEAN=0
+    git diff --cached --exit-code --quiet || CLEAN=0
+    if [ $CLEAN -ne 1 ]
+    then
+        echo "Working directory is not clean. See 'git status'. Clean working directory and try again."
+        return 0
+    fi
 
-     branch_list=$(git branch | grep $1)
-     git switch $branch_list 2>/dev/null
+    branch_list=$(git branch | grep $1)
+    git switch $branch_list 2>/dev/null
 
-     if [ $? -ne 0 ]
-     then
-         n=$(git branch | grep $1 |wc -l)
-         if [ $n -eq 1 ]
-         then
-             echo "Already on desired branch"
-             return 0
-         elif [ $n -eq 0 ]
-         then
-             echo "No branch found"
-             return 0
-         else
-             echo "$branch_list" |awk '{print NR  ":" $0}' 
-             read -p "Enter selection 1-n: " choice
-             selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
-             git switch $selection
-         fi
-     fi
- }
+    if [ $? -ne 0 ]
+    then
+        n=$(git branch | grep $1 |wc -l)
+        if [ $n -eq 1 ]
+        then
+            echo "Already on desired branch"
+            return 0
+        elif [ $n -eq 0 ]
+        then
+            echo "No branch found"
+            return 0
+        else
+            echo "$branch_list" |awk '{print NR  ":" $0}' 
+            read -p "Enter selection 1-n: " choice
+            selection=$(echo "$branch_list" | awk -v var="$choice" 'NR==var')
+            git switch $selection
+        fi
+    fi
+}
 
 gpu() {
     git branch --show-current|xargs git push -u origin 
