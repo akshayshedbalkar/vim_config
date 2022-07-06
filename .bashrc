@@ -87,6 +87,14 @@ co() {
     fi
 }
 
+checkout_all_branches() {
+    git branch -r | sed "s_origin/__" > _remotes
+    git branch -l > _local
+    grep -Fxvf _local _remotes | while read name; do git checkout $name; done
+    rm _local
+    rm _remotes
+}
+
 gpu() {
     git branch --show-current|xargs git push -u origin 
 }
@@ -99,14 +107,6 @@ delete_branch() {
 delete_tag() {
     git tag -d $1
     git push origin --delete $1
-}
-
-checkout_all_branches() {
-    git branch -r | sed "s_origin/__" > _remotes
-    git branch -l > _local
-    grep -Fxvf _local _remotes | while read name; do git checkout $name; done
-    rm _local
-    rm _remotes
 }
 
 delete_submodule() {
