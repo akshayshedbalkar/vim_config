@@ -24,6 +24,7 @@ Plug 'akshayshedbalkar/atm.vim'
 Plug 'changyuheng/color-scheme-holokai-for-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'PProvost/vim-ps1'
+Plug 'sheerun/vim-polyglot'
 plug#end()
 
 #AUTO COMMANDS
@@ -42,7 +43,7 @@ set shiftwidth=4
 set expandtab
 set nowrap
 set noshowmode
-set diffopt+=vertical
+set diffopt+=vertical,iwhite
 set completeopt-=preview
 set efm+=ctc\ %t%n:\ [\"%f\"\ %l\/%c]%m
 set hlsearch
