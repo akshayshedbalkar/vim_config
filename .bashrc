@@ -27,7 +27,7 @@ alias l='ls -lhFB --color=none --group-directories-first'
 alias ll='ls -alhFB --color=none --group-directories-first'
 alias ..='cd ..'
 alias log="git log --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
-alias logg="git logg --all --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
+alias logg="git log --all --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
 alias tag="git tag --sort=creatordate|grep -v build"
 alias vi='nvim'
 alias vimdiff='nvim -d'
