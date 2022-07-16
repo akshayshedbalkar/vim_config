@@ -28,7 +28,7 @@ alias ll='ls -alhFB --color=none --group-directories-first'
 alias ..='cd ..'
 alias log="git log --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
 alias logg="git log --all --pretty=format:'%C(red)%h%Creset %C(auto)%d%Creset %s %C(green)(%ar) %C(bold blue)<%an>%Creset'"
-alias tag="git tag --sort=creatordate|grep -v build"
+alias tag="git tag --sort=creatordate | grep -v build"
 alias vi='nvim'
 alias vimdiff='nvim -d'
 alias v='nvim ~/.config/nvim/init.vim'
@@ -110,11 +110,8 @@ delete_tag() {
 }
 
 delete_submodule() {
-    echo "Step 1:\n"
     git submodule deinit -f -- $1
-    echo "Step 2:\n"
     rm -rf .git/modules/$1
-    echo "Step 3:\n"
     git rm -rf $1
     echo "...Done!"
 }
