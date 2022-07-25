@@ -18,13 +18,12 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'natebosch/vim-lsc'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'sheerun/vim-polyglot'
 Plug 'kassio/neoterm'
 Plug 'akshayshedbalkar/atm.vim'
 Plug 'changyuheng/color-scheme-holokai-for-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'PProvost/vim-ps1'
-Plug 'sheerun/vim-polyglot'
 plug#end()
 
 #AUTO COMMANDS
