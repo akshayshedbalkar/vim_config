@@ -1,10 +1,8 @@
 # .vim
 
-This .vim folder contains a .vimrc file and plugins. 
+This project contains a .bashrc, .vimrc and vim plugins to get started with C / C++ programming. Sensible defaults are used.
 
-The folder should be placed in the HOME directory and the .vimrc file should be copied over to the HOME directory. 
+Just execute the setup.sh script. Note: the script will replace your existing .bashrc, .vimrc  and .vim folder and backups of your existing configurations will be sotred in $HOME/.vim\_config\_backup if needed. 
 
-The plugins are contained as submodules. Read the submodule_tutorial.txt to quickly clone the entire repository. 
-
-The airline plugin causes around 400ms delay on vim startup (at least on my system). This folder can be deleted if the delay is bothersome. 
+Afterward, execute :PlugInstall fro minside of vim to install all plugins.
 
