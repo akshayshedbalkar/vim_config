@@ -64,19 +64,19 @@ co() {
         return 0
     fi
 
-    branch_list=$(git branch | grep $1)
+    branch_list=$(git branch -r | cut --delimiter=/ --fields=1 --complement | grep $1)
     git switch $branch_list 2>/dev/null
 
     if [ $? -ne 0 ]
     then
-        n=$(git branch | grep $1 |wc -l)
+        n=$(git branch | cut --delimiter=/ --fields=1 --complement | grep $1 | wc -l)
         if [ $n -eq 1 ]
         then
-            echo "Already on desired branch"
+            echo "Already on desired branch."
             return 0
         elif [ $n -eq 0 ]
         then
-            echo "No branch found"
+            echo "No branch found. Perhaps try git pull --all."
             return 0
         else
             echo "$branch_list" |awk '{print NR  ":" $0}' 
