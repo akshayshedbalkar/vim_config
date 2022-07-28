@@ -69,7 +69,7 @@ co() {
 
     if [ $? -ne 0 ]
     then
-        n=$(git branch | cut --delimiter=/ --fields=1 --complement | grep $1 | wc -l)
+        n=$(echo "$branch_list"| wc -l)
         if [ $n -eq 1 ]
         then
             echo "Already on desired branch."
