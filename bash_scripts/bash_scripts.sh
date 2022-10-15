@@ -144,11 +144,12 @@ rename_branch() {
 }
 
 # Rename all local and remote branches beginning with pattern
-# First argument: pattern (eg: bugfix, feature etc)
+# First argument:  source pattern (eg: bugfix, feature etc)
+# Second argument: destination pattern (eg: bugfix, feature etc.)
 rename_all_branches() {
     for branch in $(git for-each-ref --format='%(refname:lstrip=3)' refs/heads/$1/); do
-        git branch -m series/$branch feature/$branch
-        git push origin --delete series/$branch
-        git push origin -u  feature/$branch
+        git branch -m $1/$branch $2/$branch
+        git push origin --delete $1/$branch
+        git push origin -u  $2/$branch
     done
 }
