@@ -3,4 +3,4 @@
 	url = https://github.com/junegunn/vim-plug.git
 [submodule "dotfiles"]
 	path = dotfiles
-	url = https://bitbucket.efs-techhub.com/scm/~ua833/dotfiles.git
+	url = https://github.com/akshayshedbalkar/dotfiles.git
